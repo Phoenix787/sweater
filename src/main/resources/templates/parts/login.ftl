@@ -6,7 +6,7 @@
       <label for="username" class="col-form-label"> User Name : </label>
     </div>
     <div class="col-4">
-      <input type="text" name="username" id="username" class="form-control"/>
+      <input type="text" name="username" id="username" class="form-control" placeholder="Username"/>
     </div>
   </div>
   <div class="mb-3">
@@ -14,11 +14,23 @@
       <label for="password" class="col-form-label"> Password: </label>
     </div>
     <div class="col-4">
-      <input type="password" name="password" id="password" class="form-control"/>
+      <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
     </div>
-     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-    <#if !isRegisterForm> <a href="/registration">Registration</a> </#if>
   </div>
+
+    <#if isRegisterForm>
+      <div class="mb-3">
+        <div class="col-4">
+          <label for="email" class="col-form-label"> Email: </label>
+        </div>
+        <div class="col-4">
+          <input type="text" name="email" id="email" class="form-control" placeholder="Email"/>
+        </div>
+      </div>
+    </#if>
+
+    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+    <#if !isRegisterForm> <a href="/registration">Registration</a> </#if>
   <button type="submit" class="btn btn-primary"><#if isRegisterForm>Create<#else>Sign In</#if></button>
   </div>
 </form>

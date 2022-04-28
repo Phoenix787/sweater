@@ -24,24 +24,26 @@
     </form>
 
 </div>
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row" data-masonry='{"percentPosition": true}'>
         <#list messages as message>
-        <div class="card my-3" style="max-width: 18rem;">
-            <div>
-                <#if message.filename??><img src="/img/${message.filename}" class="card-img-top"/></#if>
-            </div>
-            <div class="card-body m-2">
-                <span class="card-text">${message.text}</span>
-                <i>${message.tag}</i>
-            </div>
+            <div class="col-sm-6 col-lg-4 mb-4">
+                <div class="card p-3">
+                        <div>
+                            <#if message.filename??><img src="/img/${message.filename}" class="card-img-top"/></#if>
+                        </div>
+                        <div class="card-body m-2">
+                            <span class="card-text">${message.text}</span>
+                            <i>${message.tag}</i>
+                        </div>
 
-            <div class="card-footer">
-            ${message.authorName}
+                        <div class="card-footer">
+                        ${message.authorName}
+                        </div>
+                </div>
             </div>
+                <#else>
+                No messages
 
-        </div>
-    <#else>
-    No messages
     </#list>
 </div>
 
