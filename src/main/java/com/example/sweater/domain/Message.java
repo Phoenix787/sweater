@@ -1,8 +1,10 @@
 package com.example.sweater.domain;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Message {
@@ -11,7 +13,10 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "text")
+    @NotBlank(message = "Please fill a message")
+    @Length(max = 2048, message = "Message too long (more than 2kB")
     private String text;
+    @Length(max = 2048, message = "Message too long (more than 255")
     @Column(name = "tag")
     private String tag;
 
