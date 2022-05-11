@@ -11,7 +11,7 @@ public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
     @Column(name = "text")
     @NotBlank(message = "Please fill a message")
     @Length(max = 2048, message = "Message too long (more than 2kB")
@@ -36,11 +36,11 @@ public class Message {
         this.author = user;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
